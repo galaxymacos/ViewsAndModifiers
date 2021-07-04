@@ -1,48 +1,21 @@
 //
 //  ContentView.swift
-//  ViewsAndModifiers
+//  Conditional modifiers
 //
 //  Created by Xun Ruan on 2021/7/4.
 //
 
 import SwiftUI
 
+
 struct ContentView: View {
-    // not allowed
-//    var body: View{
-//        Text("efe")
-//    }
-    
-    // Swift wants to know the specific type of body
-//    var body: Text{
-//        Text("lalala")
-//    }
-    
-    // The return type is so complicated, so we return some View
-    var body: VStack<TupleView<(Text, Text)>>{
-        //
-        let stack = VStack{
-            Text("1")
-            Text("2")
-        }
-        print(type(of: stack))
-        return stack
+    @State var isRedColor = false
+    var body: some View{
+        // make a color-changing button by clicking
+        Button("I am a color-clicking-changing button"){
+            isRedColor.toggle()
+        }.foregroundColor(isRedColor ? Color.red: Color.blue)
     }
-    
-    
-//    var body: some View {
-//
-//    }
-    // We don't know what type of this Button, so we return some View
-//    var body: some View{
-//        Button("Hello World") {
-//            print(type(of: self.body))
-//        }
-//        .frame(width: 200, height: 200)
-//        .background(Color.red)
-//    }
-    
-    //
     
 }
 
