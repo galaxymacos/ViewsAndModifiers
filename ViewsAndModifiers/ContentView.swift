@@ -9,24 +9,17 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var isRedColor = false
+    let motto1 = Text("Draco dormiens")
+    let motto2 = Text("nunquam titillandus")
+    var motto3: some View { return motto1 }
     var body: some View{
+        VStack{
+            motto1.foregroundColor(.secondary)
+            motto2.foregroundColor(.accentColor)
+            motto3
+        }
         
-        // blur is a regular modifier
-//        VStack{
-//            Text("1").blur(radius: 1, opaque: false)
-//            Text("2")
-//        }.blur(radius: 1, opaque: false)
-        
-        // Environment modifier will override by child
-        VStack {
-            Text("Gryffindor").font(.body)
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
-        }.font(.largeTitle)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
