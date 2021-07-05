@@ -10,29 +10,21 @@ import SwiftUI
 
 struct ContentView: View {
     
-    struct CapsuleText: View{
-        var text: String
-        var body: some View{
-            Text(text)
-                .font(.largeTitle)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .clipShape(Capsule())
-        }
-    }
     var body: some View{
-        VStack{
-            CapsuleText(text:"First")
-            // modifier here cannot override the original modifier
-            CapsuleText(text:"First").font(.body)
-        }
-        
+        ZStack{
+            Color.blue
+            frame(width: 300, height: 300)
+        }.edgesIgnoringSafeArea(.all).waterMark(with: "watermark")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        if #available(iOS 15.0, *) {
+            ContentView()
+                .previewInterfaceOrientation(.landscapeLeft)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
